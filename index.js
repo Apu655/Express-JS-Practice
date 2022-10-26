@@ -31,6 +31,23 @@ app.post("/",(req,res)=>{
     console.log(req.body)
     res.send("Post request is listened")
 })
+
+// matches params at route
+app.param("id",(req,res,next,id)=>{
+    // 
+    const user  ={
+        userid:id,
+        name:"Bangladesh"
+    }
+    req.userDetails = user;
+    next()
+})
+
+app.get("/user/:id",(req,res)=>{
+    res.send("Welcome to see id page")
+    console.log(req.userDetails)
+})
+
 app.use("/admin",admin);
 app.listen(3000,()=>{
     console.log("Server is running.")

@@ -45,7 +45,7 @@ app.param("id",(req,res,next,id)=>{
 
 app.get("/user/:id",(req,res)=>{
     res.send("Welcome to see id page")
-    console.log(req.userDetails)
+    console.log(req.query)
 })
 
 app.use("/admin",admin);

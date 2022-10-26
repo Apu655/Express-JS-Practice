@@ -14,6 +14,7 @@ admin.get("/dashboard",(req,res)=>{
 
 // For url routes, case sensitivity will matter
 app.enable("case sensitive routing")
+app.disable("case sensitive routing")
 
 
 // Can be accessed through all methods (GET,PUT, DELEtE ETC)

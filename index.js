@@ -5,7 +5,7 @@ const admin = express()
 
 // app.use(express.json())
 
-
+app.use(express.json())
 
 admin.get("/dashboard",(req,res)=>{
     console.log(admin.mountpath)
@@ -20,10 +20,12 @@ app.disable("case sensitive routing")
 // Can be accessed through all methods (GET,PUT, DELEtE ETC)
 app.all("/all",(req,res)=>{
     res.send("This is a respond for all sort of methods calls")
+    console.log(req.body)
 })
 
 app.locals.title = "My App"
 app.get("/",(req, res)=>{
+    console.log(`${new Date(Date.now())}`)
     res.send("This is home page");
 })
 

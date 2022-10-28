@@ -50,6 +50,19 @@ app.get("/user/:id",(req,res)=>{
     console.log(req.query)
 })
 
+app.param("user",(req,res,next,id)=>{
+    req.br = id ==="apu"?"Admin":"Not admin"
+    next()
+    
+})
+
+app.get("/:user",(req,res)=>{
+    res.send("User is sent")
+    console.log(req.br)
+})
+
+
+
 app.use("/admin",admin);
 app.listen(3000,()=>{
     console.log("Server is running.")
